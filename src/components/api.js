@@ -1,10 +1,10 @@
 
 
-    const baseURL = 'https://api.themoviedb.org/3/';
+    const baseURL = 'http://api.themoviedb.org/3/';
     const KEY = '805efc04c3a7e613b1259ae766adc4d8';
 
     export const getSearchFilms = async (query) => {
-        const films = await fetch(`https://api.themoviedb.org/3/search/movie/?api_key=${KEY}&query=${query}`)
+        const films = await fetch(`${baseURL}/search/movie/?api_key=${KEY}&query=${query}`)
         .then(response => response.json())
         .then(data => {return data})
         return films.results;

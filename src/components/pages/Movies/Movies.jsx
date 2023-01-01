@@ -8,12 +8,12 @@ import {useLocation } from 'react-router-dom';
     const [searchFilms, setSearchFilms] = useState([]);
     const location = useLocation();
 
+
     const onSubmit = (event) => {
         event.preventDefault();
         getSearchFilms(event.target.elements[0].value)
         .then(data => {
             setSearchFilms(data)
-            // console.log('data: ', data);
         })
     }
     
