@@ -13,6 +13,7 @@ import {useLocation } from 'react-router-dom';
         getSearchFilms(event.target.elements[0].value)
         .then(data => {
             setSearchFilms(data)
+            // console.log('data: ', data);
         })
     }
     
