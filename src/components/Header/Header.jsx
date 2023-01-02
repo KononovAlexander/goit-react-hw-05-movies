@@ -2,7 +2,7 @@ import {Container} from './Container.styled'
 import { Navbar } from './Navigation.styled'
 import { StyledLink } from './Navigation.styled'
 
-export const Header = () => {
+ const Header = () => {
     return(
         <Container>
             <Navbar>
@@ -13,3 +13,5 @@ export const Header = () => {
         </Container>
     )
 }
+
+export default Header;

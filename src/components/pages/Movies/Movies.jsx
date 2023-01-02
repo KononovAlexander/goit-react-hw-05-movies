@@ -1,26 +1,37 @@
 import { getSearchFilms } from "components/api"
 import {Container, Input, MovieLink, MovieList} from "./Movies.styled"
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import {useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 
  const Movies = () => {
     const [searchFilms, setSearchFilms] = useState([]);
     const location = useLocation();
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log('searchParams: ', searchParams);
+    const productName = searchParams.get('query') ?? '';
+    console.log('productName: ', productName);
 
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        getSearchFilms(event.target.elements[0].value)
-        .then(data => {
-            setSearchFilms(data)
-        })
-    }
+    useEffect(() => {
+        if (productName === '') return;
+        getSearchFilms(productName)
+          .then(data => {
+            setSearchFilms(data);
+          })
+          .catch(err => console.log(err));
+      }, [productName]);
     
+
+    const onSubmit = ({query}) => {
+        const params = query !== '' ? { query } : {};
+
+        setSearchParams(params)
+    }
     return(
         <Container>
             <form onSubmit={onSubmit}>
-            <Input type="text" />
+            <Input type="text" name="query"/>
              <button type="submit">Search</button>   
             </form>
             <div>

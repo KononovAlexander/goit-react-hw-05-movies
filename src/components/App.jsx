@@ -1,10 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { Header } from "./Header/Header";
+import Header  from "./Header/Header";
 import { Home } from "./pages/Home/Home";
-// import { Movies } from "./pages/Movies/Movies";
-// import {MovieDetails} from "./pages/MovieDetails/MovieDetails"
-// import Cast from "./pages/MovieDetails/Cast/Cast"
-// import Reviews from "./pages/MovieDetails/Reviews/Reviews"
 import { lazy, Suspense } from 'react';
 
 
@@ -18,16 +14,13 @@ export const App = () => {
     <div
       style={{
         height: '100vh',
-        // display: 'flex',
-        // justifyContent: 'center',
-        // alignItems: 'center',
         fontSize: 40,
         color: '#010101'
       }}
     >
 
-      <Header/>
       <Suspense fallback={<div>Loading...</div>}>
+      <Header/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movies" element={<Movies/>}/>
