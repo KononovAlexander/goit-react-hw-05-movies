@@ -11,7 +11,6 @@ import { useSearchParams } from 'react-router-dom';
     const [searchParams, setSearchParams] = useSearchParams();
     console.log('searchParams: ', searchParams);
     const productName = searchParams.get('query') ?? '';
-    console.log('productName: ', productName);
 
     useEffect(() => {
         if (productName === '') return;
@@ -19,7 +18,7 @@ import { useSearchParams } from 'react-router-dom';
           .then(data => {
             setSearchFilms(data);
           })
-          .catch(err => console.log(err));
+          .catch(error => console.log(error));
       }, [productName]);
     
 
