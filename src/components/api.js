@@ -1,6 +1,6 @@
 
 
-    const baseURL = 'http://api.themoviedb.org/3/';
+    const baseURL = 'https://api.themoviedb.org/3/';
     const KEY = '805efc04c3a7e613b1259ae766adc4d8';
 
     export const getSearchFilms = async (query) => {
