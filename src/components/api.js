@@ -7,7 +7,7 @@
         const films = await fetch(`${baseURL}/search/movie/?api_key=${KEY}&query=${query}`)
         .then(response => response.json())
         .then(data => {return data})
-        return films.results;
+        if(films){return films.results}else{return {}}
     }
 
     export const  getTrendFilms = async () => {
